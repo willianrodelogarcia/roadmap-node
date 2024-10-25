@@ -34,6 +34,16 @@ async function deleteFile(filePath) {
   }
 }
 
+async function isExist(filePath) {
+  try {
+    await fs.access(filePath, fs.constants.F_OK);
+    console.log('The file exist');
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 //readFile('test-file.txt');
 //writeFile();
 //deleteFile(['test-csv.csv', 'test-file.txt']);
+isExist('test-csv.csv');
